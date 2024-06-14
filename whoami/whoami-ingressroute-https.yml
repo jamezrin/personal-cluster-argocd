@@ -8,7 +8,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`whoami.jamezrin.name`) && PathPrefix(`/tls`)
+    - match: Host(`whoami.jamezrin.name`)
       kind: Rule
       services:
         - name: whoami

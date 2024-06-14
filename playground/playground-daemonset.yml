@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: playground
+  labels:
+    app: playground
+spec:
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: playground
+  template:
+    metadata:
+      labels:
+        app: playground
+    spec:
+      containers:
+        - args:
+            - -c
+            - cat /etc/resolv.conf && apt update && apt install -y iputils-ping iproute2 net-tools dnsutils curl; sleep infinity
+          command:
+            - /bin/bash
+          image: ubuntu
+          imagePullPolicy: IfNotPresent
+          name: ubuntu
+          resources: {}
+          securityContext:
+            capabilities:
+              add:
+                - SYS_PTRACE
+                - SYS_ADMIN
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      dnsPolicy: ClusterFirstWithHostNet
+      hostNetwork: true
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+  updateStrategy:
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+    type: RollingUpdate

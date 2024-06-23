@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
+metadata:
+  name: rpp-private-data
 spec:
-  metadata:
-    name: rpp-private-data
   accessModes:
     - ReadWriteOnce
   resources:

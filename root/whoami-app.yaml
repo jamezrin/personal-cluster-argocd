@@ -11,7 +11,7 @@ spec:
     targetRevision: main
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: playground
+    namespace: whoami
   syncPolicy:
     automated:
       prune: true

@@ -5,6 +5,7 @@ metadata:
     app: rpp-public
   name: rpp-public
 spec:
+  replicas: 0
   progressDeadlineSeconds: 600
   revisionHistoryLimit: 10
   selector:

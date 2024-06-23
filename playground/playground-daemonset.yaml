@@ -31,6 +31,12 @@ spec:
                 - SYS_ADMIN
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
+          env:
+            - name: RANDOM_KEY
+              valueFrom:
+                secretKeyRef:
+                  key: key
+                  name: playground-secrets
       dnsPolicy: ClusterFirstWithHostNet
       hostNetwork: true
       restartPolicy: Always

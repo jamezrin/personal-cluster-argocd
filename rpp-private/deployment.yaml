@@ -50,8 +50,7 @@ spec:
               subPath: logs
       dnsPolicy: ClusterFirst
       imagePullSecrets:
-        - name: personal-registry
-        - name: ghcr-registry
+        - name: ghcr-registry-secret
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}

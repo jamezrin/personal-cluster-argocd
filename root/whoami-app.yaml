@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: "https://github.com/jamezrin/personal-cluster-argocd"
     path: whoami
-    targetRevision: master
+    targetRevision: main
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: playground

@@ -8,10 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/jamezrin/personal-cluster-argocd'
     path: playground
-    targetRevision: HEAD
-    directory:
-      recurse: true
-      jsonnet: {}
+    targetRevision: master
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: playground
@@ -19,5 +16,3 @@ spec:
     automated:
       prune: true
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true

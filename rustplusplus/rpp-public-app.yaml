@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rpp-public
+  namespace: argo-cd
+spec:
+  project: default
+  source:
+    repoURL: "https://github.com/jamezrin/personal-cluster-argocd"
+    path: rpp-public
+    targetRevision: main
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: rustplusplus
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

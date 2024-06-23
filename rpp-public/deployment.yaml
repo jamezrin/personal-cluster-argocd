@@ -2,35 +2,35 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: rpp-private
-  name: rpp-private
+    app: rpp-public
+  name: rpp-public
 spec:
   progressDeadlineSeconds: 600
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: rpp-private
+      app: rpp-public
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: rpp-private
+        app: rpp-public
     spec:
       containers:
         - env:
             - name: RPP_DISCORD_USERNAME
-              value: Jamezbot Private
+              value: Jamezbot Public
             - name: RPP_DISCORD_CLIENT_ID
               valueFrom:
                 secretKeyRef:
                   key: client-id
-                  name: rpp-private
+                  name: rpp-public
             - name: RPP_DISCORD_TOKEN
               valueFrom:
                 secretKeyRef:
                   key: token
-                  name: rpp-private
+                  name: rpp-public
           image: ghcr.io/rust-companion/bot:unstable
           imagePullPolicy: Always
           name: rustplusplus
@@ -57,4 +57,4 @@ spec:
       volumes:
         - name: data
           persistentVolumeClaim:
-            claimName: rpp-private-data
+            claimName: rpp-public-data

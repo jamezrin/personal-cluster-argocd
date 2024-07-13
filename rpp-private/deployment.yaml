@@ -5,7 +5,7 @@ metadata:
     app: rpp-private
   name: rpp-private
 spec:
-  replicas: 1
+  replicas: 0
   progressDeadlineSeconds: 600
   revisionHistoryLimit: 10
   selector:
@@ -21,7 +21,7 @@ spec:
       containers:
         - env:
             - name: RPP_DISCORD_USERNAME
-              value: Jamezbot Private
+              value: 'Rustsense ᴅᴇᴠ'
             - name: RPP_DISCORD_CLIENT_ID
               valueFrom:
                 secretKeyRef:

@@ -32,7 +32,7 @@ spec:
                 secretKeyRef:
                   key: token
                   name: rpp-public
-          image: ghcr.io/rust-companion/bot:unstable
+          image: ghcr.io/rust-sense/legacy:latest
           imagePullPolicy: Always
           name: rustplusplus
           resources: {}

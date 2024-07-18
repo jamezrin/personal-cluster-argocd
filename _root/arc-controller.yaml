@@ -1,21 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: playground
+  name: arc-controller
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: "https://github.com/jamezrin/personal-cluster-argocd"
-    path: playground
-    targetRevision: main
+    chart: gha-runner-scale-set-controller
+    repoURL: ghcr.io/actions/actions-runner-controller-charts
+    targetRevision: 0.9.3
   destination:
     name: "in-cluster"
-    namespace: playground
+    namespace: arc-systems
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-      

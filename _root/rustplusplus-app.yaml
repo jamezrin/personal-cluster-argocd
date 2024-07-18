@@ -10,7 +10,7 @@ spec:
     path: rustplusplus
     targetRevision: main
   destination:
-    server: "https://kubernetes.default.svc"
+    name: "in-cluster"
     namespace: rustplusplus
   syncPolicy:
     automated:

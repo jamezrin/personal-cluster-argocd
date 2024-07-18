@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: whoami
-  namespace: argo-cd
+  namespace: argocd
 spec:
   project: default
   source:
@@ -10,7 +10,7 @@ spec:
     path: whoami
     targetRevision: main
   destination:
-    server: 'https://kubernetes.default.svc'
+    server: "https://kubernetes.default.svc"
     namespace: whoami
   syncPolicy:
     automated:
@@ -18,4 +18,3 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-

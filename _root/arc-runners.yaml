@@ -9,6 +9,8 @@ spec:
     repoURL: "https://github.com/jamezrin/personal-cluster-argocd"
     path: arc-runners
     targetRevision: main
+    directory:
+      recurse: true
   destination:
     name: "in-cluster"
     namespace: arc-runners

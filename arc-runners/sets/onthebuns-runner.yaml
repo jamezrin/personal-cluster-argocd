@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: arc-runner-onthebuns
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - chart: gha-runner-scale-set
+      repoURL: ghcr.io/actions/actions-runner-controller-charts
+      targetRevision: 0.9.3
+      helm:
+        valuesObject:
+          githubConfigUrl: https://github.com/jamezrin/onthebuns-auto-campaigns
+          githubConfigSecret: arc-github-secret
+          controllerServiceAccount:
+            namespace: arc-systems
+            name: arc-controller-gha-rs-controller
+        valueFiles:
+          - $arc_config/gha-runner-scale-set-dind-fix.yaml
+    - repoURL: https://github.com/jamezrin/personal-actions-runner-setup
+      targetRevision: main
+      ref: arc_config
+  destination:
+    name: "in-cluster"
+    namespace: arc-runners
+  syncPolicy:
+    automated:
+      prune: true

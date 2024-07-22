@@ -24,3 +24,10 @@ spec:
   destination:
     name: "in-cluster"
     namespace: arc-runners
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true

@@ -13,7 +13,7 @@ spec:
       valuesObject:
         flags:
           excludeLabelPropagationPrefixes:
-          - "argocd.argoproj.io/instance"
+          - "argocd.argoproj.io/"
   destination:
     name: "in-cluster"
     namespace: arc-systems

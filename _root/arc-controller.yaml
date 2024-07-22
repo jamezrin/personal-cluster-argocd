@@ -4,7 +4,7 @@ metadata:
   name: arc-controller
   namespace: argocd
 spec:
-  project: default
+  project: arc
   source:
     chart: gha-runner-scale-set-controller
     repoURL: ghcr.io/actions/actions-runner-controller-charts

@@ -32,6 +32,8 @@ spec:
                 secretKeyRef:
                   key: token
                   name: rpp-public
+            - name: RPP_DISCORD_OWNER_USER_ID
+              value: "130442930686132224"
           image: ghcr.io/rust-sense/legacy:unstable
           imagePullPolicy: Always
           name: rustplusplus

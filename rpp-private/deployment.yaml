@@ -21,7 +21,7 @@ spec:
       containers:
         - env:
             - name: RPP_DISCORD_USERNAME
-              value: 'Rustsense ᴘʀᴏ'
+              value: 'Rustsense ᴅᴇᴠ'
             - name: RPP_DISCORD_CLIENT_ID
               valueFrom:
                 secretKeyRef:
@@ -34,7 +34,7 @@ spec:
                   name: rpp-private
             - name: RPP_DISCORD_OWNER_USER_ID
               value: "130442930686132224"
-          image: ghcr.io/rust-sense/legacy:latest
+          image: ghcr.io/rust-sense/legacy:unstable
           imagePullPolicy: Always
           name: rustplusplus
           resources: {}

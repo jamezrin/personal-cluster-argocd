@@ -4,7 +4,7 @@ metadata:
   name: arc-runners
   namespace: argocd
 spec:
-  project: arc
+  project: default
   source:
     repoURL: "https://github.com/jamezrin/personal-cluster-argocd"
     path: arc-runners

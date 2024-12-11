@@ -4,7 +4,7 @@ metadata:
   name: rpp-private
   namespace: argocd
 spec:
-  project: apps
+  project: default
   source:
     repoURL: "https://github.com/jamezrin/personal-cluster-argocd"
     path: rpp-private

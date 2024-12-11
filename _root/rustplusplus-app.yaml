@@ -4,7 +4,7 @@ metadata:
   name: rustplusplus
   namespace: argocd
 spec:
-  project: apps
+  project: default
   source:
     repoURL: "https://github.com/jamezrin/personal-cluster-argocd"
     path: rustplusplus

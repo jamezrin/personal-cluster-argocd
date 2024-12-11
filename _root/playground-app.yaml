@@ -4,7 +4,7 @@ metadata:
   name: playground
   namespace: argocd
 spec:
-  project: apps
+  project: default
   source:
     repoURL: "https://github.com/jamezrin/personal-cluster-argocd"
     path: playground
@@ -18,4 +18,3 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-      

@@ -4,7 +4,7 @@ metadata:
   name: arc-runner-timeit-webapp
   namespace: argocd
 spec:
-  project: arc
+  project: default
   sources:
     - chart: gha-runner-scale-set
       repoURL: ghcr.io/actions/actions-runner-controller-charts

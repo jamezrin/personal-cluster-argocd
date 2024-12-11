@@ -15,7 +15,6 @@ spec:
   syncPolicy:
     automated:
       prune: true
-      selfHeal: true
   ignoreDifferences:
     - group: apps
       kind: Deployment

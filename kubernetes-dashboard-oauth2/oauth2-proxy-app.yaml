@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kubernetes-dashboard-oauth2-proxy
+  namespace: argocd
+spec:
+  project: kubernetes-dashboard
+  source:
+    repoURL: https://oauth2-proxy.github.io/manifests
+    chart: oauth2-proxy
+    targetRevision: 7.9.0
+    helm:
+      releaseName: oauth2-proxy
+      valuesObject:
+        config:
+          existingSecret: oauth2-proxy-secret
+          provider: github
+          redirectURL: https://k8s.jamezrin.com/oauth2/callback
+        extraArgs:
+          - --provider=github
+          - --pass-authorization-header=true
+          - --set-authorization-header=true
+          - --pass-access-token=true
+          - --reverse-proxy=true
+          - --scope=read:org,user:email
+          - --whitelist-domain=".jamezrin.com"
+          - --cookie-domain=".jamezrin.com"
+          - --email-domain="*"
+          - --real-client-ip-header=X-Forwarded-For
+  destination:
+    name: "in-cluster"
+    namespace: kubernetes-dashboard
+  syncPolicy:
+    automated:
+      prune: true

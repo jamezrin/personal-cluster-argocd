@@ -5,29 +5,35 @@ metadata:
   namespace: argocd
 spec:
   project: databases
-  source:
-    chart: redis
-    repoURL: registry-1.docker.io/bitnamicharts
-    targetRevision: 20.6.1
-    helm:
-      valuesObject:
-        master:
-          service:
-            annotations:
-              tailscale.com/expose: "true"
-        replica:
-          service:
-            annotations:
-              tailscale.com/expose: "true"
-        sentinel:
-          enabled: true
-          service:
-            annotations:
-              tailscale.com/expose: "true"
+  sources:
+    - chart: redis
+      repoURL: registry-1.docker.io/bitnamicharts
+      targetRevision: 20.6.1
+      helm:
+        valuesObject:
+          master:
+            service:
+              annotations:
+                tailscale.com/expose: "true"
+          replica:
+            service:
+              annotations:
+                tailscale.com/expose: "true"
+          sentinel:
+            enabled: true
+            service:
+              annotations:
+                tailscale.com/expose: "true"
+    - repoURL: "https://github.com/jamezrin/personal-cluster-argocd"
+      path: redis
+      targetRevision: main
+      directory:
+        recurse: true
   destination:
     name: "in-cluster"
     namespace: redis
   syncPolicy:
-    automated: {}
+    automated:
+      prune: true
     syncOptions:
       - CreateNamespace=true

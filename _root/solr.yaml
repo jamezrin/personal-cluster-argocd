@@ -5,19 +5,25 @@ metadata:
   namespace: argocd
 spec:
   project: databases
-  source:
-    chart: solr
-    repoURL: registry-1.docker.io/bitnamicharts
-    targetRevision: 9.5.0
-    helm:
-      valuesObject:
-        service:
-          annotations:
-            tailscale.com/expose: "true"
+  sources:
+    - chart: solr
+      repoURL: registry-1.docker.io/bitnamicharts
+      targetRevision: 9.5.0
+      helm:
+        valuesObject:
+          service:
+            annotations:
+              tailscale.com/expose: "true"
+    - repoURL: "https://github.com/jamezrin/personal-cluster-argocd"
+      path: solr
+      targetRevision: main
+      directory:
+        recurse: true
   destination:
     name: "in-cluster"
     namespace: solr
   syncPolicy:
-    automated: {}
+    automated:
+      prune: true
     syncOptions:
       - CreateNamespace=true

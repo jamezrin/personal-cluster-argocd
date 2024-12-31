@@ -11,6 +11,7 @@ spec:
       targetRevision: 16.3.4
       helm:
         valuesObject:
+          architecture: replication
           primary:
             service:
               annotations:
@@ -19,6 +20,13 @@ spec:
             service:
               annotations:
                 tailscale.com/expose: "true"
+          auth:
+            username: admin
+            existingSecret: postgresql-secret
+            secretKeys:
+              adminPasswordKey: postgres-admin-password
+              userPasswordKey: postgres-user-password
+              replicationPasswordKey: postgres-replication-password
     - repoURL: "https://github.com/jamezrin/personal-cluster-argocd"
       path: postgresql
       targetRevision: main

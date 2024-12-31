@@ -1,27 +1,22 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: postgresql
+  name: solr
   namespace: argocd
 spec:
   project: databases
   source:
-    chart: postgresql
+    chart: solr
     repoURL: registry-1.docker.io/bitnamicharts
-    targetRevision: 16.3.4
+    targetRevision: 20.6.1
     helm:
       valuesObject:
-        primary:
-          service:
-            annotations:
-              tailscale.com/expose: "true"
-        readReplicas:
-          service:
-            annotations:
-              tailscale.com/expose: "true"
+        service:
+          annotations:
+            tailscale.com/expose: "true"
   destination:
     name: "in-cluster"
-    namespace: postgresql
+    namespace: solr
   syncPolicy:
     automated: {}
     syncOptions:

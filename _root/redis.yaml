@@ -1,27 +1,32 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: postgresql
+  name: redis
   namespace: argocd
 spec:
   project: databases
   source:
-    chart: postgresql
+    chart: redis
     repoURL: registry-1.docker.io/bitnamicharts
-    targetRevision: 16.3.4
+    targetRevision: 20.6.1
     helm:
       valuesObject:
-        primary:
+        master:
           service:
             annotations:
               tailscale.com/expose: "true"
-        readReplicas:
+        replica:
+          service:
+            annotations:
+              tailscale.com/expose: "true"
+        sentinel:
+          enabled: true
           service:
             annotations:
               tailscale.com/expose: "true"
   destination:
     name: "in-cluster"
-    namespace: postgresql
+    namespace: redis
   syncPolicy:
     automated: {}
     syncOptions:

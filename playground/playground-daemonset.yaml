@@ -17,7 +17,7 @@ spec:
       containers:
         - args:
             - -c
-            - cat /etc/resolv.conf && apt update && apt install -y iputils-ping iproute2 net-tools dnsutils curl; sleep infinity
+            - cat /etc/resolv.conf && apt update -y && apt install -y iputils-ping iproute2 net-tools dnsutils curl skopeo podman; sleep infinity
           command:
             - /bin/bash
           image: ubuntu

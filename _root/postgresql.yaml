@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: postgresql
+  namespace: argocd
+spec:
+  project: databases
+  source:
+    chart: postgresql
+    repoURL: registry-1.docker.io/bitnamicharts
+    targetRevision: 16.3.4
+    helm:
+      valuesObject:
+        primary:
+          service:
+            annotations:
+              tailscale.com/expose: "true"
+        readReplicas:
+          service:
+            annotations:
+              tailscale.com/expose: "true"
+        image:
+          tag: 17.2.0-debian-12-r5
+  destination:
+    name: "in-cluster"
+    namespace: postgresql
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

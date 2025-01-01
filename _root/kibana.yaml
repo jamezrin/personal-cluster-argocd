@@ -14,7 +14,7 @@ spec:
           resourcesPreset: none
           elasticsearch:
             hosts:
-              - http://elasticsearch.elasticsearch.svc.cluster.local
+              - elasticsearch.elasticsearch.svc.cluster.local
             port: 9200
           ingress:
             enabled: true

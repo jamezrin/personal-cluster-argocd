@@ -1,0 +1,18 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: timeit-http
+  namespace: apps
+spec:
+  entryPoints:
+    - web
+  routes:
+    - kind: Rule
+      match: Host(`timeit.jamezrin.com`)
+      middlewares:
+        - name: https-redirectscheme
+          namespace: apps
+      services:
+        - kind: Service
+          name: timeit-frontend
+          port: 80

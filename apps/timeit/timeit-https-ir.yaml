@@ -1,0 +1,31 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: timeit-https
+  namespace: apps
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`timeit.jamezrin.com`) && PathPrefix(`/api`)
+      middlewares:
+        - name: strip-api-prefix
+          namespace: apps
+      priority: 2
+      services:
+        - kind: Service
+          name: timeit-backend
+          port: 80
+    - kind: Rule
+      match: Host(`timeit.jamezrin.com`) && PathPrefix(`/`)
+      priority: 1
+      services:
+        - kind: Service
+          name: timeit-frontend
+          port: 80
+  tls:
+    certResolver: letsencrypt
+    domains:
+      - main: timeit.jamezrin.com
+    secretName: timeit-tls

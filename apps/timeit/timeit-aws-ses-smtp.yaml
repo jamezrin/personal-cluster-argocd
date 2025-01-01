@@ -1,0 +1,17 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: timeit-aws-ses-smtp
+  namespace: apps
+spec:
+  refreshInterval: 1h
+  secretStoreRef:
+    name: bitwarden-secret-store
+    kind: ClusterSecretStore
+  data:
+    - secretKey: username
+      remoteRef:
+        key: "df1e34dc-e589-425e-81a6-b25800cdd05f"
+    - secretKey: password
+      remoteRef:
+        key: "31d121a8-79b8-44e6-ae4b-b25800cdf58b"

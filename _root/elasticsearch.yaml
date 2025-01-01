@@ -17,7 +17,7 @@ spec:
             annotations:
               tailscale.com/expose: "true"
           ingress:
-            enabled: true
+            enabled: false
             hostname: elasticsearch.jamezrin.com
             ingressClassName: traefik
             tls: true

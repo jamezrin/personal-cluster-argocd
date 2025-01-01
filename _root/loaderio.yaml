@@ -1,14 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: apps
+  name: loaderio
   namespace: argocd
 spec:
   project: apps
   source:
     repoURL: "https://github.com/jamezrin/personal-cluster-argocd"
-    path: arc-runners
+    path: loaderio
     targetRevision: main
+    directory:
+      recurse: true
   destination:
     name: "in-cluster"
     namespace: apps

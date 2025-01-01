@@ -12,7 +12,7 @@ spec:
       helm:
         valuesObject:
           global:
-            kibanaEnabled: true
+            kibanaEnabled: false
           service:
             annotations:
               tailscale.com/expose: "true"

@@ -16,6 +16,9 @@ spec:
             hosts:
               - elasticsearch.elasticsearch.svc.cluster.local
             port: 9200
+          configuration:
+            server:
+              publicBaseUrl: https://kibana.jamezrin.com
           ingress:
             enabled: true
             hostname: kibana.jamezrin.com

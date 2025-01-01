@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: timeit
+  namespace: argocd
+spec:
+  project: apps
+  source:
+    repoURL: "https://github.com/jamezrin/personal-cluster-argocd"
+    path: apps/timeit
+    targetRevision: main
+  destination:
+    name: "in-cluster"
+    namespace: apps
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true

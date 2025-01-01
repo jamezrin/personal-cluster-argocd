@@ -11,6 +11,7 @@ spec:
       targetRevision: 11.4.1
       helm:
         valuesObject:
+          resourcesPreset: none
           elasticsearch:
             hosts:
               - http://elasticsearch.elasticsearch.svc.cluster.local

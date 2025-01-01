@@ -47,6 +47,8 @@ spec:
                 secretKeyRef:
                   key: secret
                   name: timeit-jwt-secret
+            - name: TIMEIT_EMAIL_FROM_LINE
+              value: "\"Jaime de TimeIt\" <no-reply@jamezrin.com>"
             - name: TIMEIT_CRYPT_ROUNDS
               value: "10"
             - name: TIMEIT_CORS_ORIGINS

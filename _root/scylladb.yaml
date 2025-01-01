@@ -11,6 +11,7 @@ spec:
       targetRevision: 3.1.5
       helm:
         valuesObject:
+          resourcesPreset: micro
           dbUser:
             existingSecret: scylladb-secret
           service:

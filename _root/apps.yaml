@@ -7,7 +7,7 @@ spec:
   project: apps
   source:
     repoURL: "https://github.com/jamezrin/personal-cluster-argocd"
-    path: arc-runners
+    path: apps
     targetRevision: main
   destination:
     name: "in-cluster"

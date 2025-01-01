@@ -16,9 +16,6 @@ spec:
           service:
             annotations:
               tailscale.com/expose: "true"
-          security:
-            enabled: true
-            existingSecret: elasticsearch-secret
           ingress:
             enabled: true
             hostname: elasticsearch.jamezrin.com

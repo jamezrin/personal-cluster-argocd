@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: scylladb
+  namespace: argocd
+spec:
+  project: databases
+  sources:
+    - chart: scylladb
+      repoURL: registry-1.docker.io/bitnamicharts
+      targetRevision: 3.1.5
+      helm:
+        valuesObject:
+          dbUser:
+            existingSecret: scylladb-secret
+          service:
+            annotations:
+              tailscale.com/expose: "true"
+    - repoURL: "https://github.com/jamezrin/personal-cluster-argocd"
+      path: scylladb
+      targetRevision: main
+      directory:
+        recurse: true
+  destination:
+    name: "in-cluster"
+    namespace: scylladb
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true

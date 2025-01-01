@@ -16,6 +16,17 @@ spec:
           service:
             annotations:
               tailscale.com/expose: "true"
+          security:
+            enabled: true
+            existingSecret: elasticsearch-secret
+          ingress:
+            enabled: true
+            hostname: elasticsearch.jamezrin.com
+            ingressClassName: traefik
+            tls: true
+            annotations:
+              cert-manager.io/cluster-issuer: letsencrypt-production
+              traefik.ingress.kubernetes.io/router.tls: "true"
           master:
             resourcesPreset: none
           data:

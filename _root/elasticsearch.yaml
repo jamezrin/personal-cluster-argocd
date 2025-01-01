@@ -17,21 +17,21 @@ spec:
             annotations:
               tailscale.com/expose: "true"
           master:
-            resourcesPreset: micro
+            resourcesPreset: none
           data:
-            resourcesPreset: micro
+            resourcesPreset: none
           coordinating:
-            resourcesPreset: nano
+            resourcesPreset: none
           ingest:
-            resourcesPreset: nano
+            resourcesPreset: none
           metrics:
-            resourcesPreset: nano
+            resourcesPreset: none
           volumePermissions:
-            resourcesPreset: nano
+            resourcesPreset: none
           sysctlImage:
-            resourcesPreset: nano
+            resourcesPreset: none
           copyTlsCerts:
-            resourcesPreset: nano
+            resourcesPreset: none
     - repoURL: "https://github.com/jamezrin/personal-cluster-argocd"
       path: elasticsearch
       targetRevision: main

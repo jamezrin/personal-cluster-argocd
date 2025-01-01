@@ -1,0 +1,21 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: aylamusica-https
+  namespace: apps
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`aylamusica.jamezrin.com`)
+      priority: 1
+      services:
+        - kind: Service
+          name: aylamusica
+          port: 3000
+  tls:
+    certResolver: letsencrypt
+    domains:
+      - main: aylamusica.jamezrin.com
+    secretName: aylamusica-tls

@@ -68,7 +68,7 @@ spec:
           terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
       imagePullSecrets:
-        - name: personal-registry
+        - name: harbor-apps-dockerconfig
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}

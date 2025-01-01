@@ -16,6 +16,22 @@ spec:
           service:
             annotations:
               tailscale.com/expose: "true"
+          master:
+            resourcesPreset: micro
+          data:
+            resourcesPreset: micro
+          coordinating:
+            resourcesPreset: nano
+          ingest:
+            resourcesPreset: nano
+          metrics:
+            resourcesPreset: nano
+          volumePermissions:
+            resourcesPreset: nano
+          sysctlImage:
+            resourcesPreset: nano
+          copyTlsCerts:
+            resourcesPreset: nano
     - repoURL: "https://github.com/jamezrin/personal-cluster-argocd"
       path: elasticsearch
       targetRevision: main

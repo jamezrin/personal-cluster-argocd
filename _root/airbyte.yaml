@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: airbyte
+  namespace: argocd
+spec:
+  project: dataeng
+  sources:
+    - chart: airbyte
+      repoURL: https://airbytehq.github.io/helm-charts
+      targetRevision: 1.4.0
+      helm:
+        valuesObject:
+          global:
+            airbyteUrl: https://airbyte.jamezrin.com
+  destination:
+    name: "in-cluster"
+    namespace: airbyte
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true

@@ -13,6 +13,11 @@ spec:
         valuesObject:
           global:
             airbyteUrl: https://airbyte.jamezrin.com
+
+            auth:
+              enabled: true
+              firstName: "Jaime"
+              lastName: "Martínez Rincón"
           webapp:
             ingress:
               enabled: true
@@ -26,10 +31,6 @@ spec:
                 - secretName: airbyte-tls
                   hosts:
                     - airbyte.jamezrin.com
-          auth:
-            enabled: true
-            firstName: "Jaime"
-            lastName: "Martínez Rincón"
   destination:
     name: "in-cluster"
     namespace: airbyte

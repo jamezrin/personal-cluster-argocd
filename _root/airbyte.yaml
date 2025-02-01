@@ -26,6 +26,10 @@ spec:
                 - secretName: airbyte-tls
                   hosts:
                     - airbyte.jamezrin.com
+          auth:
+            enabled: true
+            firstName: "Jaime"
+            lastName: "Martínez Rincón"
   destination:
     name: "in-cluster"
     namespace: airbyte

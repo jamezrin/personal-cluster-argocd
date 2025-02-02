@@ -8,12 +8,14 @@ spec:
   sources:
     - chart: solr
       repoURL: registry-1.docker.io/bitnamicharts
-      targetRevision: 9.5.0
+      targetRevision: 9.5.3
       helm:
         valuesObject:
           service:
             annotations:
               tailscale.com/expose: "true"
+          auth:
+            existingSecret: solr-secret
     - repoURL: "https://github.com/jamezrin/personal-cluster-argocd"
       path: solr
       targetRevision: main

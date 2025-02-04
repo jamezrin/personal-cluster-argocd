@@ -11,11 +11,12 @@ spec:
       targetRevision: 9.5.3
       helm:
         valuesObject:
+          auth:
+            existingSecret: solr-secret
+            existingSecretPasswordKey: solr-password
           service:
             annotations:
               tailscale.com/expose: "true"
-          auth:
-            existingSecret: solr-secret
     - repoURL: "https://github.com/jamezrin/personal-cluster-argocd"
       path: solr
       targetRevision: main

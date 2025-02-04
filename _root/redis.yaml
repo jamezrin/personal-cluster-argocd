@@ -11,6 +11,9 @@ spec:
       targetRevision: 20.6.1
       helm:
         valuesObject:
+          auth:
+            existingSecret: redis-secret
+            existingSecretPasswordKey: redis-password
           master:
             service:
               annotations:

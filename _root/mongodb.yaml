@@ -26,18 +26,11 @@ spec:
           rbac:
             create: true
           auth:
-            # existingSecret: mongodb-secret
-            rootPassword: randomvalue1
-            replicaSetKey: randomvalue2
+            existingSecret: mongodb-secret
             usernames:
-              - username1
-              - username2
-            passwords:
-              - password1
-              - password2
+              - admin
             databases:
-              - database1
-              - database2
+              - admin
     - repoURL: "https://github.com/jamezrin/personal-cluster-argocd"
       path: mongodb
       targetRevision: main

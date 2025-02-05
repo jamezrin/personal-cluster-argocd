@@ -35,6 +35,9 @@ spec:
             passwords:
               - password1
               - password2
+            databases:
+              - database1
+              - database2
     - repoURL: "https://github.com/jamezrin/personal-cluster-argocd"
       path: mongodb
       targetRevision: main

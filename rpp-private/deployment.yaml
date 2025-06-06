@@ -34,7 +34,7 @@ spec:
                   name: rpp-private
             - name: RPP_DISCORD_OWNER_USER_ID
               value: "130442930686132224"
-          image: ghcr.io/rust-sense/bot:unstable
+          image: ghcr.io/rust-sense/bot:1.30.0
           imagePullPolicy: Always
           name: rustplusplus
           resources: {}

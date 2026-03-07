@@ -36,7 +36,7 @@ spec:
                 secretKeyRef:
                   key: password
                   name: postgres-apps-secret
-          image: harbor.jamezrin.com/library/apachas-backend:latest
+          image: ghcr.io/jamezrin/apachas-backend:latest
           imagePullPolicy: Always
           livenessProbe:
             failureThreshold: 5

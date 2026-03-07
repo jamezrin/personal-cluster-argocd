@@ -23,7 +23,7 @@ spec:
         app: timeit-frontend
     spec:
       containers:
-        - image: harbor.jamezrin.com/library/timeit-frontend
+        - image: ghcr.io/jamezrin/timeit-frontend:latest
           imagePullPolicy: Always
           livenessProbe:
             failureThreshold: 5

@@ -23,7 +23,7 @@ spec:
         app: apachas-frontend
     spec:
       containers:
-        - image: harbor.jamezrin.com/library/apachas-frontend:latest
+        - image: ghcr.io/jamezrin/apachas-frontend:latest
           imagePullPolicy: Always
           livenessProbe:
             failureThreshold: 5

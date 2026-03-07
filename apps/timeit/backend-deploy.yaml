@@ -83,7 +83,7 @@ spec:
               value: "false"
             - name: TYPEORM_LOGGING
               value: "false"
-          image: harbor.jamezrin.com/library/timeit-backend
+          image: ghcr.io/jamezrin/timeit-backend:latest
           imagePullPolicy: Always
           livenessProbe:
             failureThreshold: 5
